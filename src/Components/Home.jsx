@@ -31,7 +31,7 @@ const Home = () => {
     }
   }, [categoryName, Products]);
 
-  return Products ? (
+  return Products && Products.length > 0 ? (
     <>
       <Navbar />
 
@@ -51,6 +51,13 @@ const Home = () => {
             <h1 className="text-center mx-1 mt-5">{products.title}</h1>
           </Link>
         ))}
+      </div>
+    </>
+  ) : Products && Products.length === 0 ? (
+    <>
+      <Navbar />
+      <div className="main-container w-[82%] min-h-[100vh] flex items-center justify-center">
+        <h1 className="text-2xl">No products available. Add some products to get started!</h1>
       </div>
     </>
   ) : (
